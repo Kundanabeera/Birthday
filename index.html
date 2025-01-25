@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Celebration</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .screen.active {
+      opacity: 1;
+      z-index: 10;
+    }
+
+    /* First Screen */
+    #screen1 {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      position: relative;
+    }
+
+    #screen1 h1 {
+      font-size: 4rem;
+      animation: fadeInScale 1.5s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: "Carter One", sans-serif;
+      font-weight: bold!important;
+    }
+
+    #screen1 h1 span {
+      opacity: 0;
+      animation: fadeInWord 1.5s ease forwards;
+    }
+
+    #screen1 h1 span:nth-child(1) {
+      color: lightgray;
+      animation-delay: 0s;
+    }
+    #screen1 h1 span:nth-child(2) {
+      color: lightgray;
+      animation-delay: 1s;
+    }
+    #screen1 h1 span:nth-child(3) {
+      color: lightgray;
+      animation-delay: 1.5s;
+    }
+    #screen1 h1 span:nth-child(4) {
+      color: yellow;
+      animation-delay: 2s;
+    }
+    #screen1 h1 span:nth-child(5) {
+      color: yellow;
+      animation-delay: 2.5s;
+    }
+
+    @keyframes fadeInWord {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1.5);
+      }
+    }
+
+    /* Second Screen */
+
+    #screen2 h1 {
+      font-size: 3rem;
+      animation: fadeIn 1.5s ease-in-out;
+      font-size: 100px;
+    }
+
+    /* Second Screen */
+    #screen2 {
+        background-color: #ff476c;
+        background: linear-gradient(45deg, #ff476c, #ffbbcc); /* Gradient for more depth */
+        color: #fff;
+        text-align: center;
+        font-family: Arial, sans-serif;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-weight: bolder;
+      margin: 0;
+  animation: backgroundPulse 6s ease-in-out infinite; /* Subtle background animation */
+}
+
+#screen2 h1 {
+  font-size: 3rem;
+  animation: fadeIn 1.5s ease-in-out, bounce 1s infinite;
+}
+
+@keyframes backgroundPulse {
+  0% { background: linear-gradient(45deg, #ff476c, #ffbbcc); }
+  50% { background: linear-gradient(45deg, #ffbbcc, #ff476c); }
+  100% { background: linear-gradient(45deg, #ff476c, #ffbbcc); }
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+    /* Third Screen */
+    #screen3 {
+      background: radial-gradient(circle at center, #1E90FF, #00008B);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #screen3 h1 {
+      font-size: 4rem;
+      animation: fadeIn 2s ease-in-out;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+      letter-spacing: 2px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #screen3 p {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      animation: fadeIn 3s ease-in-out;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .balloon {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      background: radial-gradient(circle, #1E90FF, #87CEEB);
+      border-radius: 50%;
+      animation: float 6s ease-in infinite;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .string {
+      position: absolute;
+      width: 2px;
+      height: 50px;
+      background: white;
+      top: 75px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      width: 6px;
+      height: 15px;
+      background: white;
+      transform: translateX(-50%);
+      border-radius: 50%;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-100vh) translateX(30px); }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #FFD700;
+      animation: fall 3s linear infinite;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .confetti:nth-child(1) {
+  animation: fall 3s linear infinite;
+  left: 15%;
+  animation-duration: 3s;
+}
+
+.confetti:nth-child(2) {
+  animation: fall 2.5s linear infinite;
+  left: 35%;
+  animation-duration: 2.5s;
+}
+
+.confetti:nth-child(3) {
+  animation: fall 3.5s linear infinite;
+  left: 55%;
+  animation-duration: 3.5s;
+}
+
+.confetti:nth-child(4) {
+  animation: fall 4s linear infinite;
+  left: 75%;
+  animation-duration: 4s;
+}
+
+@keyframes stringSway {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-5px); }
+  100% { transform: translateX(5px); }
+}
+
+.string {
+  animation: stringSway 2s ease-in-out infinite;
+}
+
+.screen {
+  transition: background-color 1s ease-in-out;
+}
+
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Screen 1 -->
+  <div id="screen1" class="screen active">
+    <h1>
+        <span>TODAY</span>
+        <span>IS</span>
+        <span>YOUR</span>
+        <span>SPECIAL DAY</span>
+    </h1>
+  </div>
+
+  <!-- Screen 2 -->
+  <div id="screen2" class="screen">
+    <h1>LET'S CELEBRATE</h1>
+  </div>
+
+  <!-- Screen 3 -->
+  <div id="screen3" class="screen">
+    <h1>🎉 Happy Birthday, <span class="highlight">Annaya!</span> 🎂</h1>
+    <p>🎉 Annaya, here's to an incredible year ahead! May it be filled with thrilling adventures, endless laughter, and all the success you deserve! 🌟 Let’s make every moment unforgettable! 🚀💫</p>
+
+    <!-- Balloons -->
+    <div class="balloon" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="balloon" style="left: 30%; animation-delay: 1s;"></div>
+    <div class="balloon" style="left: 50%; animation-delay: 2s;"></div>
+    <div class="balloon" style="left: 70%; animation-delay: 3s;"></div>
+    <div class="balloon" style="left: 90%; animation-delay: 4s;"></div>
+  </div>
+  <!-- Confetti -->
+  <div class="confetti" style="left: 15%; animation-delay: 0s;"></div>
+  <div class="confetti" style="left: 35%; animation-delay: 0.5s;"></div>
+  <div class="confetti" style="left: 55%; animation-delay: 1s;"></div>
+  <div class="confetti" style="left: 75%; animation-delay: 1.5s;"></div>
+
+  <script>
+    // JavaScript for screen transitions
+    const screens = document.querySelectorAll('.screen');
+    let currentScreen = 0;
+
+    function showNextScreen() {
+      if (currentScreen < screens.length - 1) {
+        screens[currentScreen].classList.remove('active');
+        currentScreen++;
+        screens[currentScreen].classList.add('active');
+      }
+    }
+    
+
+    // Automatically transition between screens
+    setInterval(() => {
+      if (currentScreen < screens.length - 1) {
+        showNextScreen();
+      }
+    }, 3000); // Adjust duration (in milliseconds) for each screen
+  </script>
+</body>
+</html>
